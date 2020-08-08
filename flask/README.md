@@ -243,3 +243,257 @@ This is the search filter API.
     ]
 }
 ```
+
+### POST ```/user/```
+This is to create a new user.
+#### Request
+```json
+[
+    {
+        "name": "user"
+    }
+]
+```
+#### Response
+##### 200 OK
+```json
+[
+    {
+        "status": "User Added Successfully",
+        "user_id": <identifier>,
+        "name": "user",
+        "uni_tracker": []
+    }
+]
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### PUT ```/user/```
+This is to update the user. This is also used to add universities to the user's tracker.
+#### Request
+```json
+[
+    {
+        "user_id": <identifier>,
+        "name": "user",
+        "uni_tracker": [ <identifer>, <identifier> ]
+    }
+]
+```
+#### Response
+##### 200 OK
+```json
+[
+    {
+        "status": "User Updated Successfully",
+        "user_id": <identifier>,
+        "name": "user",
+        "uni_tracker": [ <identifer>, <identifier> ]
+    }
+]
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### GET ```/user/<user_id>```
+This is to fetch a particular user.
+#### Response
+##### 200 OK
+```json
+[
+    {
+        "user_id": <identifier>,
+        "name": "user",
+        "uni_tracker": [ <identifer>, <identifier> ]
+    }
+]
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### DELETE ```/user/<user_id>```
+This is to delete a particular user.
+#### Response
+##### 200 OK
+```json
+[
+    {
+        "status": "User Deleted Successfully",
+        "user_id": <identifier>,
+        "name": "user",
+        "uni_tracker": [ <identifer>, <identifier> ]
+    }
+]
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### POST ```/user/role/```
+This is to change the role of a user from normal user to admin or vice-a-versa. We are using a separate API to do this to prevent an outside entity from knowning about this.
+#### Request
+```json
+{
+    "user_id": <identifier>,
+    "role": "admin"
+}
+```
+#### Response
+##### 200 OK
+```json
+{
+    "status": "User Role Updated",
+    "user_id": <identifier>,
+    "role": "admin"
+}
+```
+##### 403 Forbidden
+```json
+{
+    "errors": [
+        {
+            "error": "Unauthorized Access"
+        }
+    ]
+}
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### POST ```/user/login/```
+This is to authenticate the user.
+#### Request
+```json
+{
+    "email": "test@test.com",
+    "user_pass": "tnkrspace"
+}
+```
+#### Response
+##### 200 OK
+```json
+{
+    "status": "Login Successful",
+    "user_id": <identifier>
+}
+```
+##### 401 Unauthorized
+```json
+{
+    "errors": [
+        {
+            "error": "Login Failed"
+        }
+    ]
+}
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
+
+### PUT ```/user/login```
+This is to update user login details.
+#### Request
+```json
+{
+    "user_id": <identifier>,
+    "email": "test@test.org",
+    "user_pass": "azentoverseaseducation"
+}
+```
+#### Response
+##### 200 OK
+```json
+{
+    "status": "Login Updated",
+    "user_id": <identifier>
+}
+```
+##### 401 Unauthorized
+```json
+{
+    "errors": [
+        {
+            "error": "Login Failed"
+        }
+    ]
+}
+```
+##### 400 Bad Request/404 Not Found/500 Server Error
+```json
+{
+    "errors": [
+        {
+            "error": "Error Message"
+        },
+        {
+            "error": "Error Message"
+        }
+    ]
+}
+```
