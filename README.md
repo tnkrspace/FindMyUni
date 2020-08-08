@@ -8,7 +8,7 @@ To do
 ## Architecture
 This section details the deployment architecture of this project.
 ### Application
-The applicaton is written in Python.
+The applicaton is written in Python using Flask for API development.
 ### MongoDB
 For the database, we are using NoSQL MongoDB.
 ### Nginx
@@ -18,4 +18,8 @@ This is our intergrated monitoring solution that is also deployed automatically 
 Additionally, we will elastic search as a search engine backend for our filter APIs.
 
 ## Project Structure
-To Do
+```
+TO DO
+to be created with tree
+annotate inline
+```
