@@ -180,32 +180,40 @@ This is the search filter API.
 #### Request
 ```json
 {
-    "filterGroup": {
-        "operator": "AND",
-        [
-            {
-                "filter": {
-                    "key": "name",
-                    "value": ["Waterloo", "Stanford"],
-                    "operator": "OR"
-                }
-            },
-            {
-                "filter": {
-                    "key": "alpha_two_code",
-                    "value": [ "US", "CA" ],
-                    "operator": "OR"
-                }
-            },
-            {
-                "filter": {
-                    "key": "domain",
-                    "value": [ "ca" ],
-                    "operator": "OR"
-                }
-            }
-        ]
-    }
+  "filterGroup": {
+    "operator": "AND",
+    "filters": [
+      {
+        "filter": {
+          "key": "name",
+          "value": [
+            "Waterloo",
+            "Stanford"
+          ],
+          "operator": "OR"
+        }
+      },
+      {
+        "filter": {
+          "key": "alpha_two_code",
+          "value": [
+            "US",
+            "CA"
+          ],
+          "operator": "OR"
+        }
+      },
+      {
+        "filter": {
+          "key": "domain",
+          "value": [
+            "ca"
+          ],
+          "operator": "OR"
+        }
+      }
+    ]
+  }
 }
 ```
 #### Response
