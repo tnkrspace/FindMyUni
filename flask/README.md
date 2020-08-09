@@ -230,7 +230,9 @@ This is the search filter API.
         }
       ]
     }
-  }
+  },
+  'from': 10,
+  'size': 10
 }
 ```
 #### Response
