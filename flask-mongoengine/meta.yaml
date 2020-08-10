@@ -1,0 +1,51 @@
+{% set name = "flask-mongoengine" %}
+{% set version = "0.9.5" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 0f426aeafc4be2c37e9b4c0f8b5d02d012b7afc4b3b97a4119024684fe148fc1
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - flask >=0.8
+    - flask-wtf >=0.13
+    - mongoengine >=0.8.0
+    - pip
+    - python
+    - six
+  run:
+    - flask >=0.8
+    - flask-wtf >=0.13
+    - mongoengine >=0.8.0
+    - python
+    - six
+
+test:
+  imports:
+    - flask_mongoengine
+    - flask_mongoengine.wtf
+  requires:
+    - coverage
+    - nose
+    - rednose
+
+about:
+  home: "https://github.com/mongoengine/flask-mongoengine"
+  license: BSD
+  license_family: BSD
+  license_file: 
+  summary: "Flask-MongoEngine is a Flask extension that provides integration with MongoEngine and WTF model forms."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
